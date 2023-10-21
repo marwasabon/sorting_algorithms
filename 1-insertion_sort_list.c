@@ -1,4 +1,6 @@
 #include "sort.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * insertion_sort_list - sorts a double linked list using inset algorithm
@@ -25,7 +27,8 @@ void insertion_sort_list(listint_t **list)
 				tmp->next->prev = tmp->prev;
 			tmp->prev->next = tmp->next;
 			tmp->next = tmp->prev;
-			tmp->prev = tmp->next->prev;
+			if (tmp->next)
+				tmp->prev = tmp->next->prev;
 			tmp->next->prev = tmp;
 
 			if (tmp->prev)
@@ -34,8 +37,6 @@ void insertion_sort_list(listint_t **list)
 				head = tmp;
 
 			print_list(head);
-
-			tmp = tmp->prev;
 		}
 
 		node = node->next;
