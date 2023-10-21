@@ -1,5 +1,4 @@
- 
- #include "sort.h"
+#include "sort.h"
 
 /**
  * insertion_sort_list - sorts a double linked list using inset algorithm
@@ -44,4 +43,3 @@ void insertion_sort_list(listint_t **list)
 
 	*list = head;
 }
- 
