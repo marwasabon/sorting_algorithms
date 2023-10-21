@@ -1,4 +1,4 @@
- 
+
 #include "sort.h"
 
 /**
@@ -10,6 +10,7 @@
 void swap(int *array, size_t i, size_t j)
 {
 	int tmp = array[i];
+
 	array[i] = array[j];
 	array[j] = tmp;
 }
@@ -49,5 +50,3 @@ void selection_sort(int *array, size_t size)
 		}
 	}
 }
-
- 
