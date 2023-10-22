@@ -22,28 +22,30 @@ void swap(int *array, size_t i, size_t j)
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, min_idx;
+	size_t i, j;
+	int min_idx;
+	bool swapped;
 
-	if (!array || size == 0)
+	if (array == NULL || size < 1)
 		return;
 
 	for (i = 0; i < size - 1; i++)
 	{
 		min_idx = i;
+		swapped = false;
 
 		for (j = i + 1; j < size; j++)
 		{
 			if (array[j] < array[min_idx])
 			{
 				min_idx = j;
+				swapped = true;
 			}
 		}
 
-		if (min_idx != i)
+		if (swapped)
 		{
-			int temp = array[i];
-			array[i] = array[min_idx];
-			array[min_idx] = temp;
+			swap(array, i, min_idx);
 			print_array(array, size);
 		}
 	}
