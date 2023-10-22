@@ -1,6 +1,11 @@
 #include "sort.h"
 
- 
+/**
+ * bubble_sort - sortsan array for integer using the bubble sort algorithm
+ *
+ * @size: size of the array
+ * @array: is a pointer to an array
+ */
 
 void bubble_sort(int *array, size_t size)
 
