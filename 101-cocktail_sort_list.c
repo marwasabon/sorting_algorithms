@@ -1,23 +1,61 @@
 #include "sort.h"
+#include <stdio.h>
 
 
 
 void cocktail_sort_list(listint_t **list)
 {
-	int i;
-	listint_t *temp;
+	listint_t *tmp, *curr;
+	int swapped;
 
-	for (i = 0; ((*list) + i + 1)->next != NULL; i++)
-	{
-		if (((*list) + i)->n > ((*list) + i + 1)->n)
+	curr = *list;
+	do {
+		while (curr->next != NULL)
 		{
-			temp = ((*list) + i + 1);
-			((*list) + i)->next = temp->next;
-			((*list) + i + 1)->next = ((*list) + i);
-			((*list) + i + 1)->prev = ((*list) + i)->prev;
-			((*list) + i + 1)->prev = ((*list) + i + 1);
-			temp->prev = ((*list) + i);
-			print_list(*list);
+			swapped = 0;
+			if (curr->n > curr->next->n)
+			{
+				swapped = 1;
+				tmp = curr->next;
+				if (curr->prev != NULL)
+					curr->prev->next = tmp;
+				else
+					*list = tmp;
+				tmp->prev = curr->prev;
+				curr->prev = tmp;
+				curr->next = tmp->next;
+				if (tmp->next != NULL)
+					tmp->next->prev = curr;
+				tmp->next = curr;
+				curr = tmp;
+				print_list(*list);
+			}
+			curr = curr->next;
 		}
-	}
+		if (!swapped)
+			break;
+		swapped = 0;
+		while (curr->prev != NULL)
+		{
+			if (curr->n < curr->prev->n)
+			{
+				swapped = 1;
+				tmp = curr->prev;
+
+				if (tmp->prev != NULL)
+					tmp->prev->next = curr;
+				else
+					*list = curr;
+				curr->prev = tmp->prev;
+				tmp->next = curr->next;
+				if (curr->next != NULL)
+					curr->next->prev = tmp;
+				curr->next = tmp;
+				tmp->prev = curr;
+				curr = tmp;
+				print_list(*list);
+			}
+			curr = curr->prev;
+		}
+	} while (swapped);
 }
