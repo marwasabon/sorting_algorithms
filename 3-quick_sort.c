@@ -53,12 +53,12 @@ void _sort(int *array, int low, int high, size_t size)
  */
 int _partition(int *array, int low, int high, size_t size)
 {
-	int p_idx, i, j, tmp;
+	int pivot, i, j, tmp;
 
-	p_idx = array[high];
+	pivot = array[high];
 	for (i = j = low; j < high; j++)
 	{
-		if (array[j] < p_idx)
+		if (array[j] < pivot)
 		{
 			/*swap item at i with item at j*/
 			tmp = array[i];
