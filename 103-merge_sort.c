@@ -52,7 +52,6 @@ void merge_sort(int *array, size_t size)
 	cpy_array = malloc(sizeof(int) * size);
 	_copy(array, cpy_array, size);
 
-
-
 	_divide(cpy_array, 0, size, array);
+	free(cpy_array);
 }
