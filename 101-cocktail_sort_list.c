@@ -89,9 +89,9 @@ void cocktail_sort_list(listint_t **list)
 		return;
 	curr = *list;
 	do {
+		swapped = 0;
 		while (curr->next != NULL)
 		{
-			swapped = 0;
 			if (curr->n > curr->next->n)
 			{
 				swapped = 1;
