@@ -22,7 +22,7 @@ void counting_sort(int *array, size_t size)
 
     count = (int *)malloc((max + 1) * sizeof(int));
 
-    for (i = 0; i <= max; i++)
+    for (i = 0; i <= (size_t)max; i++)
     {
         count[i] = 0;
     }
@@ -34,7 +34,7 @@ void counting_sort(int *array, size_t size)
 
     index = 0;
 
-    for (i = 0; i <= max; i++)
+    for (i = 0; i <= (size_t) max; i++)
     {
         while (count[i] > 0)
         {
