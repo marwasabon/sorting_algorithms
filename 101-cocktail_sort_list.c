@@ -2,6 +2,32 @@
 #include <stdio.h>
 
 /**
+ * _len - Counts the number of elements in a doubly linked list.
+ *
+ * This function counts the number of elements in a doubly linked list.
+ *
+ * @list: A pointer to the head of the linked list.
+ *
+ * Return: The number of elements in the list.
+ */
+int _len(listint_t *list)
+{
+	listint_t *tmp;
+	int n = 0;
+
+	if (list == NULL)
+		return (0);
+	tmp = list;
+
+	while (tmp != NULL)
+	{
+		n++;
+		tmp = tmp->next;
+	}
+	return (n);
+}
+
+/**
  * _swap_node - Swaps two adjacent elements in a doubly linked list.
  *
  * This function swaps two adjacent elements in a doubly linked list.
@@ -59,6 +85,8 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *curr;
 	int swapped;
 
+	if (list == NULL || _len(*list) < 2)
+		return;
 	curr = *list;
 	do {
 		while (curr->next != NULL)
