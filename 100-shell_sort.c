@@ -9,10 +9,14 @@
 
 void shell_sort(int *array, size_t size)
 {
+	
 
 	int i, j, interval;
 
 	interval = 1;
+
+	if (array == NULL || size <= 1)
+		return;
 
 	while (interval <= (int)(size / 3))
 	{
