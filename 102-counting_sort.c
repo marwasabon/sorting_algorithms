@@ -43,6 +43,22 @@ void counting_sort(int *array, size_t size)
             count[i]--;
         }
     }
+        printf("Counting array: ");
+    for (i = 0; i <= max; i++)
+    {
+        printf("%d ", count[i]);
+    }
+    printf("\n");
+
+    for (i = 0; i <= max; i++)
+    {
+        while (count[i] > 0)
+        {
+            array[index] = i;
+            index++;
+            count[i]--;
+        }
+    }
 
     free(count);
 }
