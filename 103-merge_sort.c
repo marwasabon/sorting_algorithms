@@ -40,6 +40,7 @@ void _merge(int *s_arr, int *d_arr, size_t start, size_t end, size_t middle)
 {
 	size_t i, j, k;
 
+	write(1, "Merging...\n", 11);
 	write(1, "[left]: ", 8);
 	print_array(s_arr + start, middle - start);
 	/* _printn(s_arr[start]); */
@@ -66,7 +67,6 @@ void _merge(int *s_arr, int *d_arr, size_t start, size_t end, size_t middle)
 		/* 	write(1, ", ", 2); */
 	}
 	print_array(d_arr + start, end - start);
-	write(1, "\n", 1);
 }
 
 void _divide(int *dest, size_t start, size_t end, int *src)
