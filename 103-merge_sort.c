@@ -44,12 +44,12 @@ void _merge(int *s_arr, int *d_arr, size_t start, size_t end, size_t middle)
 {
 	size_t i, j, k;
 
-	_print("Merging...\n");
-	_print("[left]: ");
+	printf("Merging...\n");
+	printf("[left]: ");
 	print_array(s_arr + start, middle - start);
-	_print("[right]: ");
+	printf("[right]: ");
 	print_array(s_arr + middle, end - middle);
-	_print("[Done]: ");
+	printf("[Done]: ");
 	i = start;
 	j = middle;
 	for (k = start; k < end; k++)
